@@ -2,10 +2,10 @@
   "name": "nodejs_express_api",
   "version": "1.0.0",
   "description": "My first api with nodejs and express",
-  "main": "index.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +26,7 @@
     "express": "^4.21.2"
   },
   "devDependencies": {
+    "dotenv": "^16.4.7",
     "nodemon": "^3.1.7"
   }
 }

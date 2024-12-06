@@ -1,9 +1,17 @@
 import express from 'express';
 import fs from "fs";
 import bodyParser from "body-parser";
+import dotenv from 'dotenv';
 
-
+dotenv.config();
 const app = express();
+const PORT = process.env.PORT || 8000;
+
+
+
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+});
 
 //Middleware
 app.use(bodyParser.json());
@@ -77,6 +85,7 @@ app.delete("/books/:id", (req,res) => {
     res.json({message: "Book deleted!"});
 });
 
-app.listen(3000, () => {
-    console.log('Server listening on port 3000');
-});
+//Error 404
+app.use((req,res,next) => {
+    res.status(404).send("<h1>Error 404: página no encontrada</h1>")
+})
